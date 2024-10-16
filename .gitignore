@@ -1,52 +1,35 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <time.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main(){
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    int hour = 0, day = 0, min = 0;
+    int sleep1 = 1;
+    
+    for (int i = 0; i <=60; i++)
+    {
+        printf("Dias: %d\n", day);
+        printf("Horas: %d\n", hour);
+        printf("Minutos: %d\n", min);
+        printf("Segundos: %d\n", i);
 
-# Precompiled Headers
-*.gch
-*.pch
+        sleep(sleep1);
+        system("cls");
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+        if(i == 59){
+            min+=1;
+        }
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+        if(min == 60){
+            hour+=1;
+        }
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+        if(hour == 24){
+            day+=1;
+        }
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+        if(i>=59){
+            i = 0;
+        }
+    }
+}
